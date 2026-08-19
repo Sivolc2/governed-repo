@@ -1,33 +1,34 @@
 # CLAUDE.md — Governed Repo
 
-This repo is governed by a contract. You MUST follow these rules.
+This repo is governed by a contract at `governance/CONTRACT.md`.
 
 ## Prime Directive
 
-Before doing ANY work, read `governance/CONTRACT.md` in full. Every action you
-take must comply with the contract's Scope, Boundaries, and Decision Rights.
+Read the contract before doing anything. Your job is to serve the loop:
+**Intent → Build → Measure → Refine.**
 
-## Workflow
+## Session workflow
 
-1. **Start of session:** Run `bash tests/check_contract.sh` — if it fails, the
-   contract is incomplete. Help the steward fill it in before doing other work.
-2. **Before writing code:** Verify your planned work falls within the contract's
-   Scope (section 2). If it doesn't, stop and ask the steward.
-3. **After writing code:** Run `bash tests/check_boundaries.sh` to verify you
-   haven't violated any boundaries.
-4. **End of session:** Produce a session report as defined in the contract's
-   Reporting section (section 6).
+1. Read `governance/CONTRACT.md`
+2. Run `bash tests/check_contract.sh`
+   - If blockers: help the steward resolve them (fill in intent, scope, etc.)
+   - If operable: proceed to build within scope
+3. Build toward the stated intent, within the boundaries
+4. At end of session, write a loop entry to `governance/loop/YYYY-MM-DD.md`:
+   - What you built
+   - What signals moved (or didn't)
+   - Proposed refinements to intent, scope, or signals
+5. If the loop entry suggests a contract change, write a proposal to
+   `governance/proposals/YYYY-MM-DD-title.md`
 
-## What you cannot do without steward approval
+## Key rules
 
-- Anything listed as "Out of scope" in the contract
-- Adding dependencies not covered by "Allowed languages / frameworks"
-- Any action listed under "Forbidden actions"
-- Modifying the governance contract itself (use the Amendment Process)
+- Never build outside the contract's scope without steward approval
+- Treat success signals as hypotheses, not fixed targets — propose better ones
+- Boundaries are hard constraints; everything else evolves
+- The agent proposes, the steward decides
 
 ## Tests
 
-- `tests/check_contract.sh` — validates the contract is complete and well-formed
-- `tests/check_boundaries.sh` — validates repo state against contract boundaries
-
-Both must pass. Treat failures as blockers.
+- `tests/check_contract.sh` — is the contract complete enough to operate?
+- `tests/check_boundaries.sh` — does the repo state respect boundaries?

@@ -1,8 +1,8 @@
 # Governance Contract
 
-> This contract defines the rules, boundaries, and success criteria for this
-> autonomous project. A Claude Code agent operating in this repo MUST read this
-> contract before taking any action and MUST comply with every section.
+> This is a living contract. It defines a cybernetic loop: the steward states
+> intent, the agent builds toward it, outcomes are measured, and both parties
+> refine the intent together. The contract evolves as understanding deepens.
 
 ---
 
@@ -11,82 +11,124 @@
 | Field | Value |
 |-------|-------|
 | **Project name** | `___` |
-| **Purpose (one sentence)** | `___` |
 | **Owner / steward** | `___` |
 | **Created** | `___` |
 | **Contract version** | `0.1.0` |
 
 ---
 
-## 2. Scope
+## 2. Intent
 
-What this project is allowed to build and do.
+The steward's current understanding of what this project should become.
+This section is deliberately imprecise — it captures direction, not spec.
 
-- **In scope:** `___`
-- **Out of scope:** `___`
-- **Allowed languages / frameworks:** `___`
+**Vision:** `___`
+
+**Current hypothesis:** `___`
+
+**Open questions the agent should help answer:**
+- `___`
 
 ---
 
-## 3. Boundaries
+## 3. The Loop
 
-Hard constraints the agent must never violate.
+The governance cycle. Each pass through the loop refines the intent.
+
+```
+  ┌─────────────────────────────────────────────┐
+  │                                             │
+  │   INTENT ──► BUILD ──► MEASURE ──► REFINE   │
+  │     ▲                                │      │
+  │     └────────────────────────────────┘      │
+  │                                             │
+  └─────────────────────────────────────────────┘
+```
+
+1. **Intent** — Steward writes/updates section 2
+2. **Build** — Agent works within Scope (section 4) and Boundaries (section 5)
+3. **Measure** — Agent evaluates outcomes against Success Signals (section 6)
+4. **Refine** — Agent proposes intent updates in `governance/loop/` with evidence
+
+### Loop cadence
+
+| Trigger | Action |
+|---------|--------|
+| Start of session | Read contract, run loop check |
+| End of session | Write loop entry to `governance/loop/YYYY-MM-DD.md` |
+| Signal changes | Propose contract amendment |
+
+---
+
+## 4. Scope
+
+What the agent is allowed to build and do right now.
+
+- **In scope:** `___`
+- **Out of scope:** `___`
+- **Allowed tools / languages:** `___`
+
+---
+
+## 5. Boundaries
+
+Hard constraints. These don't change without a contract amendment.
 
 | Boundary | Limit |
 |----------|-------|
 | **Budget cap ($/month)** | `___` |
-| **Max files created per session** | `___` |
 | **Allowed external services** | `___` |
 | **Forbidden actions** | `___` |
 | **Data handling** | `___` |
 
 ---
 
-## 4. Decision Rights
+## 6. Success Signals
 
-Who can approve what.
+NOT precise test commands. These are the signals that tell us the product is
+working and the intent is being realized. They evolve as the intent sharpens.
+
+### Leading indicators (are we building the right thing?)
+
+| Signal | How we'd know | Status |
+|--------|---------------|--------|
+| `___` | `___` | `unknown` |
+
+### Lagging indicators (is the product succeeding?)
+
+| Signal | How we'd know | Status |
+|--------|---------------|--------|
+| `___` | `___` | `unknown` |
+
+### Current blind spots (what we can't measure yet)
+
+- `___`
+
+---
+
+## 7. Decision Rights
 
 | Decision | Authority |
 |----------|-----------|
-| Change scope | `___` |
-| Add dependency | `___` |
-| Deploy / publish | `___` |
-| Modify this contract | `___` |
+| Refine intent | Steward (agent proposes) |
+| Change scope | Steward |
+| Add dependency | Agent (notify steward) |
+| Deploy / publish | Steward |
+| Modify this contract | Steward (agent proposes via amendment) |
 
 ---
 
-## 5. Success Metrics
+## 8. Amendment Process
 
-How we know this project is working. Each metric has a target and a test.
-
-| Metric | Target | Test command |
-|--------|--------|--------------|
-| `___` | `___` | `___` |
-| `___` | `___` | `___` |
-| `___` | `___` | `___` |
-
----
-
-## 6. Reporting
-
-What the agent must produce and when.
-
-- **After each session:** `___`
-- **Weekly:** `___`
-- **On completion:** `___`
-
----
-
-## 7. Amendment Process
-
-1. Propose a change in `governance/proposals/YYYY-MM-DD-title.md`
-2. The steward reviews and approves or rejects
-3. Merge the approved change into this CONTRACT.md
+1. Agent writes a proposal to `governance/proposals/YYYY-MM-DD-title.md`
+   including: what changed, why, and what evidence prompted it
+2. Steward reviews — approves, rejects, or refines
+3. Approved changes merge into this CONTRACT.md
 4. Bump the contract version
 
 ---
 
-## 8. Signatures
+## 9. Signatures
 
 | Role | Name | Date |
 |------|------|------|
